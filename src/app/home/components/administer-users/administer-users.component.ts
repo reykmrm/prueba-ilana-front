@@ -93,7 +93,7 @@ export class AdministerUsersComponent {
 
   deleteUser(id: any) {
     Swal.fire({
-      title: '¿Desea eliminar este registro de diagnóstico?.',
+      title: '¿Desea eliminar este registro?. ',
       showDenyButton: true,
       showCancelButton: false,
       confirmButtonText: 'Eliminar',
