@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-header">Registrarse</div>
+  <div class="card-body">
+    <form class="form">
+      <div class="form-group">
+        <label class="label" for="email">Nombre</label>
+        <input
+          name="name"
+          type="text"
+          class="form-control"
+          [(ngModel)]="user.name"
+          placeholder="Juan prez perez"
+        />
+      </div>
+      <div class="form-group">
+        <label class="label" for="email">Email</label>
+        <input
+          name="email"
+          type="text"
+          class="form-control"
+          [(ngModel)]="user.email"
+          placeholder="example@example.com"
+        />
+      </div>
+      <div class="form-group">
+        <label class="label" for="password">Contraseña</label>
+        <input
+          name="pass"
+          type="password"
+          class="form-control"
+          [(ngModel)]="user.pass"
+          placeholder="**********"
+        />
+      </div>
+      <button (click)="registerUser()" class="btn btn-primary btn-block">
+        enviar
+      </button>
+
+      <a routerLink="" class="register" routerLink="/login">Login</a>
+    </form>
+  </div>
+</div>

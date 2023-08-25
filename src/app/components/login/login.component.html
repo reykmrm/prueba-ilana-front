@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="card">
+  <div class="card-header">Iniciar Sesión</div>
+  <div class="card-body">
+    <form class="form">
+      <div class="form-group">
+        <label class="label" for="email">Email</label>
+        <input
+          name="email"
+          type="text"
+          class="form-control"
+          [(ngModel)]="userLogin.email"
+          placeholder="example@example.com"
+        />
+      </div>
+      <div class="form-group">
+        <label class="label" for="password">Contraseña</label>
+        <input
+          name="pass"
+          type="password"
+          class="form-control"
+          [(ngModel)]="userLogin.pass"
+          placeholder="**"
+        />
+      </div>
+
+      <button (click)="login()" class="btn btn-primary btn-block">
+        Entrar
+      </button>
+
+      <a routerLink="" class="register" routerLink="/register">Registrarse</a>
+    </form>
+  </div>
+</div>

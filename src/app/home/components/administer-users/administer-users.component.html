@@ -1,0 +1,119 @@
+<div class="margin">
+  <div class="mat-elevation-z8 margin-80">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+        <td mat-cell *matCellDef="let row">{{ row.email }}</td>
+      </ng-container>
+
+      <!-- Fruit Column -->
+      <!-- <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+        <td mat-cell *matCellDef="let row">
+          <div class="row">
+            <div class="col-1">
+              <a >
+                <i class="bi bi-pencil-square">hola</i>
+              </a>
+            </div>
+            <div class="col-1">
+              <a >
+                <i class="bi bi-trash3-fill">hola 1</i>
+              </a>
+            </div>
+          </div></td
+      ></ng-container> -->
+
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Editar</th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon class="white-icon" (click)="open(content, row.id)"
+            >edit</mat-icon
+          >
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Eliminar</th>
+        <td mat-cell *matCellDef="let row">
+          <mat-icon class="white-icon" (click)="deleteUser(row.id)"
+            >delete</mat-icon
+          >
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4"></td>
+      </tr>
+    </table>
+
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      aria-label="Select page of users"
+    ></mat-paginator>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="limpiarUser()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="card">
+      <div class="card-header text-center">Actualizar</div>
+      <div class="card-body">
+        <form class="form">
+          <div class="form-group">
+            <label class="label" for="email">Nombre</label>
+            <input
+              name="name"
+              type="text"
+              class="form-control"
+              [(ngModel)]="user.name"
+              placeholder="Juan prez perez"
+            />
+          </div>
+          <div class="form-group">
+            <label class="label" for="email">Email</label>
+            <input
+              name="email"
+              type="text"
+              class="form-control"
+              [(ngModel)]="user.email"
+              placeholder="example@example.com"
+            />
+          </div>
+          <div
+            class="container d-flex align-items-center justify-content-center"
+          >
+            <button (click)="updateUser()" class="btn btn-primary btn-block">
+              enviar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>

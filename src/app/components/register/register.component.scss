@@ -1,0 +1,64 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #5371882f;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px; /* Controla el ancho del formulario */
+  height: 400px;
+  background-color: #F9F5EB;
+  border: none;
+}
+
+.card-header{
+  background-color: #537188;
+  text-align: center;
+  color: #F9F5EB;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form{
+  display: grid;
+  justify-items: center;
+}
+
+.form-control{
+  width: 320px;
+
+  &:focus{
+    outline: none;
+  }
+}
+
+.label{
+  font-weight: 500;
+  padding: 10px 0;
+
+}
+
+.btn-block{
+  background-color: #537188;
+  width: 130px;
+  border: none;
+  color: #EEEEEE;
+  margin-top: 20px;
+
+  &:hover{
+    background-color: #d9dfe4a6;
+    color: #3f3f3f;
+  }
+}
+
+.register {
+  margin-top: 10px;
+  text-decoration: none;
+  color: #537188;
+  padding: 10px 0;
+  text-align: right;
+}
